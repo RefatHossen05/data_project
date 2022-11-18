@@ -2,6 +2,11 @@
 
 @section('content')
 
+
+<div class="mx-auto">
+<a href="{{ route('amount.form')}}" class="btn btn-outline-warning my-2">Add Amount</a>
+</div>
+
 <h1 class="text-center p-4 bg-primary text-white border-rounded-y2">Popular Diagonstic Center</h1>
 
 <table class="table">
@@ -11,6 +16,7 @@
             <th>Date</th>
             <th>Code</th>
             <th>Type of Test</th>
+            <th>Bad & Cavin</th>
             <th>Discription</th>
             <th>Bil</th>
             <th>Discount</th>
@@ -23,6 +29,7 @@
             <td>665508</td>
             <td>TRILYCERIDES</td>
             <td>-</td>
+            <td>1000.00</td>
             <td>200.00</td>
             <td>0.00</td>
             <td>0.00</td>

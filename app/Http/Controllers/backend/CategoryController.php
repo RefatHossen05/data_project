@@ -7,14 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function list(){
-       return view('backend.pagees.list');
-    }
-
-    public function patient(){
-        return view('backend.pagees.patient');
-    }
-
+  
     public function prescribe(){
         return view('backend.pagees.prescribe');
     }
@@ -23,8 +16,13 @@ class CategoryController extends Controller
         return view('backend.pagees.admit');
     }
 
-    public function  amount(){
-        return view('backend.pagees.amount');
+
+
+    public function  totalamount(){
+        return view('backend.pagees.amount.amount');
+    }
+    public function amountcreate(){
+        return view('backend.pagees.amount.create');
     }
 
 }

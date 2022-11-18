@@ -18,7 +18,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link " href="{{ route('patient') }}">
+    <a class="nav-link " href="{{ route('ptninfo.info') }}">
     <i class="bi bi-file-diff"></i>
       <span>Patient</span>
     </a>
@@ -31,6 +31,8 @@
       <span>Prescribe</span>
     </a>
   </li>
+
+  <!-- start labtest dropdown -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="">
@@ -52,23 +54,46 @@
           <i class="bi bi-circle"></i><span>Stoke material</span>
         </a>
       </li>
-      
     </ul>
+  </li>
+
+  <!-- end labtest dropdown -->
  
 
 
+ <!-- start admit dropdown -->
+
+ <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-pci-card"></i><span>Admit</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ route('admit.bad') }}">
+              <i class="bi bi-circle"></i><span>Bad</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('admit.cavin') }}">
+              <i class="bi bi-circle"></i><span>Cavin</span>
+            </a>
+          </li>
+      
+        </ul>
+      </li>
+
+ <!-- end admit dropdown  -->
 
 
 
 
 
-
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link " href="{{ route('admit') }}">
     <i class="bi bi-pci-card"></i>
       <span>Admit</span>
     </a>
-  </li>
+  </li> -->
 
   <li class="nav-item">
     <a class="nav-link " href="{{ route('amount') }}">

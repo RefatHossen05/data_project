@@ -1,8 +1,12 @@
 @extends('backend.master')
 
 @section('content')
+ 
+<a href="{{ route('add.form')}}" class="btn btn-outline-primary my-2">Add Metarial</a>
+</div>
 
-<div class="text-center ">
+
+<div class="text-center">
     <h3 class="text-warning">Add Material</h3>
 </div>
 <table class="table table-bordered table-dark text-center table-striped">
