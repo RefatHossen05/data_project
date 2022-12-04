@@ -14,7 +14,6 @@
         <tr>
             <th>Sl No</th>
             <th>Date</th>
-            <th>Code</th>
             <th>Type of Test</th>
             <th>Bad & Cavin</th>
             <th>Discription</th>
@@ -23,18 +22,19 @@
             <th>Recived</th>
         </tr>
 
-        <tr>
-            <td>1</td>
-            <td>12-11-2022</td>
-            <td>665508</td>
-            <td>TRILYCERIDES</td>
-            <td>-</td>
-            <td>1000.00</td>
-            <td>200.00</td>
-            <td>0.00</td>
-            <td>0.00</td>
-        </tr>
+            @foreach($amounts as $amount_view)
 
+        <tr>
+            <td>{{$amount_view->id}}</td>
+            <td>{{$amount_view->date}}</td>
+            <td>{{$amount_view->type_of_test}}</td>
+            <td>{{$amount_view->bad_and_cavin}}</td>
+            <td>{{$amount_view->discription}}</td>
+            <td>{{$amount_view->bill}}</td>
+            <td>{{$amount_view->discount}}</td>
+            <td>{{$amount_view->recived}}</td>
+        </tr>
+            @endforeach
     </thead>
     <tbody>
 

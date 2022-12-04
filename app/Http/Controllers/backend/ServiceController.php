@@ -35,6 +35,7 @@ class ServiceController extends Controller
 
         #insert code
        $doctor = new Doctor();
+      
        $doctor->doctorname = $request->doctorname;
        $doctor->dpt = $request->dpt;
        $doctor->degree =$request->degree;
@@ -44,7 +45,7 @@ class ServiceController extends Controller
        $doctor->save();
 
       session()->flash('msg','Doctor Information Added Successfully');
-       return redirect()->back();
+       return redirect()->route('doctor')->with('success','Created Successfully');
 
 
     }
@@ -53,6 +54,30 @@ class ServiceController extends Controller
     public function show(Doctor $doctor){
         $doctors = Doctor::all();
         return view('backend.pagees.servicees.doctorlist',compact('doctors'));
+    }
+
+    public function delete($id){
+        Doctor::find($id)->delete();
+        return redirect()->route('doctor')->with('danger','Deleted Successfully');
+    }
+
+
+    public function updateform($id){
+        $doctorlists = Doctor::find($id);
+        return view('backend.pagees.servicees.updateform',compact('doctorlists'));
+    }
+
+    public function update(Request $request, $id){
+        $doctorlist = Doctor::find($id);
+        $doctorlist->update([
+            'doctorname'=>$request->doctorname,
+            'dpt'=>$request->dpt,
+            'degree'=>$request->degree,
+            'time'=>$request->time,
+            'address'=>$request->address,
+            'mobile'=>$request->mobile,
+        ]);
+        return redirect()->route('doctor')->with('warning','Updated Successfully');
     }
 
 }

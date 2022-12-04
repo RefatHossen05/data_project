@@ -34,23 +34,33 @@ Route::get('/dashboard-admin',[DashboardController::class,'dashboard'])->name('d
 Route::get('/patient-info',[RogiController::class,'information'])->name('ptninfo.info');
 Route::get('/patient-create',[RogiController::class,'list'])->name('list');
 Route::post('/patient-submit',[RogiController::class,'submit_data'])->name('submitdata');
+Route::get('/patient-delete/{id}',[RogiController::class,'delete'])->name('delete');
+Route::get('/patient-updateform/{id}',[RogiController::class,'updateform'])->name('updateform');
+Route::put('/patient-update/{id}',[RogiController::class,'update'])->name('patient.update');
+
 
 
 
                             #CategoryController
 Route::get('/prescribe-prescribe',[CategoryController::class,'prescribe'])->name('prescribe');
 Route::get('/admit-admin',[CategoryController::class,'admit'])->name('admit');
+
+
 Route::get('/amount',[CategoryController::class,'totalamount'])->name('amount');
 Route::get('/amount-create',[CategoryController::class,'amountcreate'])->name('amount.form');
+Route::post('/amount-create-submit',[CategoryController::class,'store'])->name('amount.submit');
 
 
 
 
                             #AdmitController
-Route::get('/admit-bad',[AdmitController::class,'bad'])->name('admit.bad');
-Route::get('/admit-cavin',[AdmitController::class,'cavin'])->name('admit.cavin');
 
-
+Route::get('/admitedcreate',[AdmitController::class,'admitedcreate'])->name('admit.create');
+Route::get('/admitedform',[AdmitController::class,'admitedform'])->name('admit.form');
+Route::post('/admitedstore',[AdmitController::class,'store'])->name('admit.store');
+Route::get('/admited-deleted/{id}',[AdmitController::class,'delete'])->name('admit.delete');
+Route::get('/admited-updateform/{id}',[AdmitController::class,'updateform'])->name('admitedupdate.form');
+Route::put('/admited-update/{id}',[AdmitController::class,'update'])->name('admited.update');
 
 
 
@@ -61,17 +71,30 @@ Route::get('/servicees',[ServiceController::class,'show'])->name('doctor');
 Route::get('/create-service',[ServiceController::class,'cerateForm'])->name('service.form');
 Route::get('/update-service',[ServiceController::class,'updateForm'])->name('update.form');
 Route::post('/storedata',[ServiceController::class,'store'])->name('store.data');
+Route::get('/doctorlist-delete/{id}',[ServiceController::class,'delete'])->name('doctordate.delete');
+Route::get('/doctorlist-updateform/{id}',[ServiceController::class,'updateform'])->name('doctorlist.updateform');
+Route::put('/doctorlist.update/{id}',[ServiceController::class,'update'])->name('update');
+
 
 
 
 
                             #TestController
-Route::get('/addmeterial',[TestController::class,'add'])->name('add');
-Route::get('add-create',[TestController::class,'list'])->name('add.form');
-Route::get('/stokemetarial',[TestController::class,'stokemetarial'])->name('stokemetarial');
-Route::get('metarial-create',[TestController::class,'smet'])->name('add.metarifalform');
 Route::get('/testname',[TestController::class,'testname'])->name('testname');
-Route::get('testname-create',[TestController::class,'tprice'])->name('add.testname');
+Route::get('/testname-create',[TestController::class,'testform'])->name('add.testname');
+Route::post('/testname-submit',[TestController::class,'testnamestore'])->name('testname.submit');
+Route::get('/testname-delete/{id}',[TestController::class,'labdrop'])->name('testname.delete');
+Route::get('/testname-updateform/{id}',[TestController::class,'testupdateform'])->name('test.updateform');
+Route::put('/testname-update/{id}',[TestController::class,'testnaemupdate'])->name('test.update');
 
+
+
+
+Route::get('/report',[TestController::class,'reportlist'])->name('reprot.list');
+Route::get('/report-form',[TestController::class,'reportform'])->name('add.form');
+Route::post('/report-store',[TestController::class,'reportstore'])->name('report.store');
+Route::get('/report-drop/{id}',[TestController::class,'tabledelete'])->name('table.delete');
+Route::get('/report-updateform/{id}',[TestController::class,'updateform'])->name('report.updateform');
+Route::put('/report-update/{id}',[TestController::class,'update'])->name('report.update');
 
 

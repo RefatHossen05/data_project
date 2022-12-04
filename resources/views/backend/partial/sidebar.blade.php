@@ -1,4 +1,6 @@
 <!-- ======= Sidebar ======= -->
+
+
 <aside id="sidebar" class="sidebar">
 
 <ul class="sidebar-nav" id="sidebar-nav">
@@ -45,15 +47,11 @@
         </a>
       </li>
       <li>
-        <a href="{{ route('add')}}">
-          <i class="bi bi-circle"></i><span>Add material</span>
+        <a href="{{ route('reprot.list')}}">
+          <i class="bi bi-circle"></i><span>Report</span>
         </a>
       </li>
-      <li>
-        <a href="{{ route('stokemetarial')}}">
-          <i class="bi bi-circle"></i><span>Stoke material</span>
-        </a>
-      </li>
+
     </ul>
   </li>
 
@@ -62,25 +60,12 @@
 
 
  <!-- start admit dropdown -->
-
  <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-pci-card"></i><span>Admit</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ route('admit.bad') }}">
-              <i class="bi bi-circle"></i><span>Bad</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('admit.cavin') }}">
-              <i class="bi bi-circle"></i><span>Cavin</span>
-            </a>
-          </li>
-      
-        </ul>
-      </li>
+    <a class="nav-link " href="{{ route('admit.create') }}">
+      <i class="bi bi-grid"></i>
+      <span>Admit</span>
+    </a>
+  </li>
 
  <!-- end admit dropdown  -->
 

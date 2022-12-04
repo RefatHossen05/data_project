@@ -10,33 +10,34 @@
 <br>
 
 <div class="container mx-auto">
-    <form action="{{ route('store.data')}}" method="post" >
 
+    <form action="{{ route('update',$doctorlists->id)}}" method="post" >
+    @method('PUT')
     @csrf
         <div class="form-group my-2">
          <label for="doctorname" class="mb-1">Doctor Name :</label>
-         <input type="text" name="doctorname" class="form-control" placeholder="Enter Your Name" id="doctorname">
+         <input type="text" name="doctorname" class="form-control" placeholder="Enter Your Name" id="doctorname" value="{{ $doctorlists->doctorname}}">
          @error('doctorname')
          <strong class="text-danger">{{$message}}</strong>
          @enderror
         </div>
         <div class="form-group my-2">
          <label for="dpt"  class="mb-1">Department :</label>
-         <input type="text" name="dpt" class="form-control" placeholder="(Medicine Expart)" id="dpt">
+         <input type="text" name="dpt" class="form-control" placeholder="(Medicine Expart)" id="dpt" value="{{ $doctorlists->dpt}}">
          @error('dpt')
          <strong class="text-danger">{{$message}}</strong>
          @enderror
         </div>
         <div class="form-group my-2">
          <label for="degree" class="mb-1">Degree :</label>
-         <input type="text" name="degree" class="form-control" placeholder="MBBS(FCS)" id="degree">
+         <input type="text" name="degree" class="form-control" placeholder="MBBS(FCS)" id="degree"  value="{{ $doctorlists->degree}}">
          @error('degree')
          <strong class="text-danger">{{$message}}</strong>
          @enderror
         </div>
         <div class="form-group my-2">
          <label for="time" class="mb-1">Time to see the patient :</label>
-         <input type="text" name="time" class="form-control" placeholder="(4.00PM - 8.00PM" id="time">
+         <input type="text" name="time" class="form-control" placeholder="(4.00PM - 8.00PM" id="time"  value="{{ $doctorlists->time}}">
          @error('time')
          <strong class="text-danger">{{$message}}</strong>
          @enderror
@@ -44,7 +45,7 @@
 
         <div class="form-group my-2">
          <label for="address" class="mb-1">Address :</label>
-         <input type="text" name="address" class="form-control" placeholder="Enter Your Home Address" id="address">
+         <input type="text" name="address" class="form-control" placeholder="Enter Your Home Address" id="address"  value="{{ $doctorlists->address}}">
          @error('address')
          <strong class="text-danger">{{$message}}</strong>
          @enderror
@@ -52,7 +53,7 @@
 
         <div class="form-group my-2">
          <label for="mobile" class="mb-1">Mobile No :</label>
-         <input type="number" name="mobile" class="form-control" placeholder="+880-" id="mobile">
+         <input type="number" name="mobile" class="form-control" placeholder="+880-" id="mobile"  value="{{ $doctorlists->mobile}}">
          @error('mobile')
          <strong class="text-danger">{{$message}}</strong>
          @enderror

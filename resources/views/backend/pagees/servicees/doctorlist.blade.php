@@ -10,26 +10,49 @@
 
 <h1 class="text-center text-info" >Doctor Information</h1>
 
+@if($message = session()->get('success'))
+<div class="alert alert-success alert-block">
+    <strong>{{$message}}</strong>
+</div>
+@endif
+
+@if($message = session()->get('danger'))
+<div class="alert alert-danger alert-block">
+<strong>{{$message}}</strong>
+</div>
+@endif
+@if($message =session()->get('warning'))
+<div class="alert alert-warning alert-block">
+<strong>{{$message}}</strong>
+</div>
+@endif
 <table class="table table-bordered">
-    <thead>
+    <thead class="text-center">
         <tr>
+            <th>Sl No</th>
             <th>Doctor Name </th>
             <th>Department</th>
             <th>Degree</th>
             <th>Time to see the patient </th>
             <th>Address</th>
             <th>Mobile No </th>
+            <th>Update</th>
+            <th>Action</th>
+            
         </tr>
 
         @foreach($doctors as $doctor_view)
 
         <tr>
+            <td>{{$doctor_view->id}}</td>
             <td>{{$doctor_view->doctorname}}</td>
             <td>{{$doctor_view->dpt}}</td>
             <td>{{$doctor_view->degree}}</td>
             <td>{{$doctor_view->time}}</td>
             <td>{{$doctor_view->address}}</td>
             <td>{{$doctor_view->mobile}}</td>
+            <td><a href="{{ route('doctorlist.updateform',$doctor_view->id)}}" class="btn btn-warning">Update</a></td>
+            <td><a href="{{ route ('doctordate.delete',$doctor_view->id)}}" class="btn btn-danger">Delete</a></td>
         </tr>
         @endforeach
 

@@ -4,11 +4,13 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 
 class RogiController extends Controller
 {
     public function information(){
-        return view('backend.pagees.ptninfo.info');
+        $informations = Patient::all();
+        return view('backend.pagees.ptninfo.info',compact('informations'));
     }
 
     public function list(){
@@ -16,8 +18,62 @@ class RogiController extends Controller
     }
 
     public function submit_data(Request $request){
-        return $request->all();
+        $request->validate([
+            'patient_name'=>'required',
+            'gender'=>'required',
+            'age'=>'required',
+            'address'=>'required',
+            'mobile_no'=>'required',
+        ]);
+
+
+       Patient::create([
+           'patient_name' =>$request->patient_name,
+           'gender' =>$request->gender,
+           'age' =>$request->age,
+           'address' =>$request->address,
+           'mobile_no'=>$request->mobile_no,
+       ]);
+       return redirect()->route('ptninfo.info')->with('success','Created successfully');
+
     }
+
+    public function delete($id){
+        Patient::find($id)->delete();
+        return back();
+    }
+
+    public function updateform($id){
+        $patientinfo = Patient::find($id);
+        return view('backend.pagees.ptninfo.updateform',compact('patientinfo'));
+    }
+
+    public function update(Request $request, $id){
+
+        $request->validate([
+            'patient_name'=>'required',
+            'gender'=>'required',
+            'age'=>'required',
+            'address'=>'required',
+            'mobile_no'=>'required',
+        ]);
+
+
+
+
+
+        $patientinfoupdate = Patient::find($id);
+        $patientinfoupdate->update([
+            'patient_name' =>$request->patient_name,
+            'gender' =>$request->gender,
+            'age' =>$request->age,
+            'address' =>$request->address,
+            'mobile_no'=>$request->mobile_no,
+        ]);
+        return redirect()->route('ptninfo.info');
+    }
+
+   
 
 
 }
