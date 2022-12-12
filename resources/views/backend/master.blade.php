@@ -25,6 +25,9 @@
   <link href="{{url('backend/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
   <link href="{{url('backend/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{url('backend/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+  <!-- fontawesome cdn -->
+
+
 
   <!-- Template Main CSS File -->
   <link href="{{url('backend/assets/css/style.css')}}" rel="stylesheet">
@@ -49,6 +52,7 @@
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
+      <i class="fa-thin fa-house-user"></i>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>

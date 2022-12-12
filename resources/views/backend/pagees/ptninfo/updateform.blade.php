@@ -3,10 +3,10 @@
 
 @section('content')
 
-
+ 
 <h1 class="text-center bg-success text-white p-2">Add Patient Infromation</h1>
 <div class="container mx-auto">
-    <form action="{{ route('patient.update',$patientinfo->id)}}" method="POST" >
+    <form action="{{ route('patient.update',$patientinfo->id)}}" method="POST" enctype="multipart/form-data">
     @method('PUT')
     @csrf
 

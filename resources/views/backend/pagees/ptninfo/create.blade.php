@@ -2,20 +2,26 @@
 @section('title,')
 
 @section('content')
-
+ 
 <div class="mx-auto">
 <a href="{{ url('patient-info')}}" class="btn btn-outline-primary my-2">Patient List</a>
 </div>
 
 <h1 class="text-center bg-success text-white p-2">Add Patient Infromation</h1>
 <div class="container mx-auto">
-    <form action="{{ route('submitdata') }}" method="POST" >
+    <form action="{{ route('submitdata') }}" method="POST"  enctype="multipart/form-data">
     @csrf
 
         <div class="form-group my-2">
          <label for="patient_name"  class="mb-1">Patient Name:</label>
          <input type="text" class="form-control" name="patient_name" placeholder="Plese Enter Patient Name" id="patient_name">
         </div>
+
+        <div class="form-group my-2">
+         <label for="patient_image"  class="mb-1">Patient Image:</label>
+         <input type="file" class="form-control" name="patient_image" placeholder="Plese Enter Patient Name" id="patient_image">
+        </div>
+
         <div class="form-group my-2">
          <label for="gender"  class="mb-1">Gender</label>
          <input type="text" class="form-control" name="gender" placeholder="Male/Female" id="gender">

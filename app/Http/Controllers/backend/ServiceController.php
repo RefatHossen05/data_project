@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\validator;
 
 class ServiceController extends Controller
 {
-    
+     
     public function cerateForm(){
         return view('backend.pagees.servicees.create');
     }
@@ -29,22 +29,37 @@ class ServiceController extends Controller
         if($validator->fails()){
             return redirect(url('/create-service'))->withErrors($validator)->withinput();
         }
+        $filename = null;
+        if($request->hasfile('doctor_image')){
+            $filename = date('Ymdhmsis').'.'.$request->file('doctor_image')->getClientOriginalExtension();
+
+            $request->file('doctor_image')->storeAs('/uploads/doctor/',$filename);
+        }
 
 
+        Doctor::create([
+            'doctorname'=>$request->doctorname,
+            'dpt'=>$request->dpt,
+            'degree'=>$request->degree,
+            'time'=>$request->time,
+            'address'=>$request->address,
+            'mobile'=>$request->mobile,
+            'doctor_image'=>$filename
+        ]);
 
 
         #insert code
-       $doctor = new Doctor();
+    //    $doctor = new Doctor(); 
       
-       $doctor->doctorname = $request->doctorname;
-       $doctor->dpt = $request->dpt;
-       $doctor->degree =$request->degree;
-       $doctor->time = $request->time;
-       $doctor->address = $request->address;
-       $doctor->mobile = $request->mobile;
-       $doctor->save();
+    //    $doctor->doctorname = $request->doctorname;
+    //    $doctor->dpt = $request->dpt;
+    //    $doctor->degree =$request->degree;
+    //    $doctor->time = $request->time;
+    //    $doctor->address = $request->address;
+    //    $doctor->mobile = $request->mobile;
+    //    $doctor->save();
 
-      session()->flash('msg','Doctor Information Added Successfully');
+    //   session()->flash('msg','Doctor Information Added Successfully');
        return redirect()->route('doctor')->with('success','Created Successfully');
 
 

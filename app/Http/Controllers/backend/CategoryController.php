@@ -8,13 +8,7 @@ use App\Models\Amount;
 
 class CategoryController extends Controller
 {
-  
-    public function prescribe(){
-        return view('backend.pagees.prescribe');
-    }
-
-
-    public function admit(){
+ public function admit(){
         return view('backend.pagees.admit');
     }
 

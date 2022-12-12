@@ -8,13 +8,14 @@
 @if($message = session()->get('success'))
 <div class="alert alert-success alert-block">
 <strong>{{$message}}</strong>
-</div>
+</div> 
 @endif
 <table class="table table-bordered table-light text-center table-striped">
     <thead>
         <tr>
             <th>Sl No</th>
             <th>Patient Name</th>
+            <th>Patient Image</th>
             <th>Gender</th>
             <th>Age</th>
             <th>Address</th>
@@ -27,6 +28,9 @@
         <tr>
             <td>{{ $patientview->id }}</td>
             <td>{{ $patientview->patient_name }}</td>
+            <td>
+            <img src="{{url('/uploads/patient/'.$patientview->patient_image)}}" alt="image not found" height="70px" width="70px" class="rounded-circle">
+            </td>
             <td>{{ $patientview->gender }}</td>
             <td>{{ $patientview->age}}</td>
             <td>{{ $patientview->address}}</td>

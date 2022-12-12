@@ -26,6 +26,20 @@ class RogiController extends Controller
             'mobile_no'=>'required',
         ]);
 
+ 
+        $filename = null;
+        if($request->hasfile('patient_image')){
+            $filename = 'Kodeeo'.'_'.date('Ymdhmsis').'.'.$request->file('patient_image')->getClientOriginalExtension();
+
+
+       
+        $request->file('patient_image')->storeAs('/uploads/patient',$filename);
+      }
+
+
+
+
+
 
        Patient::create([
            'patient_name' =>$request->patient_name,
@@ -33,7 +47,11 @@ class RogiController extends Controller
            'age' =>$request->age,
            'address' =>$request->address,
            'mobile_no'=>$request->mobile_no,
+           'patient_image'=>$filename
        ]);
+
+
+
        return redirect()->route('ptninfo.info')->with('success','Created successfully');
 
     }

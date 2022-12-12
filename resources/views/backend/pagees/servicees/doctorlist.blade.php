@@ -5,9 +5,9 @@
 <div class="container">
 <div class="mx-auto">
 <a href="{{ route('service.form')}}" class="btn btn-outline-primary">Add Doctor</a>
+</div> 
 </div>
-</div>
-
+ 
 <h1 class="text-center text-info" >Doctor Information</h1>
 
 @if($message = session()->get('success'))
@@ -31,6 +31,7 @@
         <tr>
             <th>Sl No</th>
             <th>Doctor Name </th>
+            <th>Doctor Image</th>
             <th>Department</th>
             <th>Degree</th>
             <th>Time to see the patient </th>
@@ -46,6 +47,9 @@
         <tr>
             <td>{{$doctor_view->id}}</td>
             <td>{{$doctor_view->doctorname}}</td>
+            <td>
+            <img src="{{url('/uploads/doctor/'.$doctor_view->doctor_image)}}" alt="image not found" height="70px" width="70px" class="rounded-circle">
+            </td>
             <td>{{$doctor_view->dpt}}</td>
             <td>{{$doctor_view->degree}}</td>
             <td>{{$doctor_view->time}}</td>

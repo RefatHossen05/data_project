@@ -7,6 +7,8 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\TestController;
 use App\Http\Controllers\backend\AdmitController;
 use App\Http\Controllers\backend\RogiController;
+use App\Http\Controllers\backend\AppointmentController;
+use App\Http\Controllers\backend\AdmissionController;
 
 
 /*
@@ -42,7 +44,7 @@ Route::put('/patient-update/{id}',[RogiController::class,'update'])->name('patie
 
 
                             #CategoryController
-Route::get('/prescribe-prescribe',[CategoryController::class,'prescribe'])->name('prescribe');
+
 Route::get('/admit-admin',[CategoryController::class,'admit'])->name('admit');
 
 
@@ -98,3 +100,19 @@ Route::get('/report-updateform/{id}',[TestController::class,'updateform'])->name
 Route::put('/report-update/{id}',[TestController::class,'update'])->name('report.update');
 
 
+
+
+                            #AppoinmentController
+Route::get('/appointmentlist',[AppointmentController::class,'appointmentlist'])->name('appointment.list');
+Route::get('/appointmentform',[AppointmentController::class,'appointmentform'])->name('appointment.form');
+Route::post('/appointmentstore',[AppointmentController::class,'appointmentstore'])->name('appointment.store');
+Route::get('/appointmentdelete/{id}',[AppointmentController::class,'appointmentdelete'])->name('appointment.delete');
+Route::get('/appointmenteditform/{id}',[AppointmentController::class,'appointmentedit'])->name('appointment.edit');
+Route::put('appointmentupdate/{id}',[AppointmentController::class,'appointmentupdate'])->name('appointment.update');
+
+
+
+                                #AdmissionController
+Route::get('/admissionlist',[AdmissionController::class,'admissionlist'])->name('admission.list');
+Route::get('/admissionform',[AdmissionController::class,'admissionform'])->name('admission.form');
+Route::post('/admissionstore',[AdmissionController::class,'admissionstore'])->name('admission.store');

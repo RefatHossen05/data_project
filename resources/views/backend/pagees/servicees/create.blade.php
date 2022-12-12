@@ -5,12 +5,12 @@
 <div class="mx-auto my-2">
 <a href="{{ url('servicees')}}" class="btn btn-outline-primary">Doctor list</a>
 </div>
-
+ 
 <h1 class="text-center bg-success text-white p-2">Add Infromation</h1>
 <br>
-
+ 
 <div class="container mx-auto">
-    <form action="{{ route('store.data')}}" method="post" >
+    <form action="{{ route('store.data')}}" method="post" enctype="multipart/form-data">
 
     @csrf
         <div class="form-group my-2">
@@ -20,6 +20,12 @@
          <strong class="text-danger">{{$message}}</strong>
          @enderror
         </div>
+
+        <div class="form-group my-2">
+         <label for="doctor_image" class="mb-1">Doctor Image :</label>
+         <input type="file" name="doctor_image" class="form-control" id="doctor_image">
+        </div>
+
         <div class="form-group my-2">
          <label for="dpt"  class="mb-1">Department :</label>
          <input type="text" name="dpt" class="form-control" placeholder="(Medicine Expart)" id="dpt">

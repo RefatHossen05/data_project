@@ -28,9 +28,9 @@
 
 
   <li class="nav-item">
-    <a class="nav-link " href="{{ route('prescribe') }}">
+    <a class="nav-link " href="{{ route('appointment.list')}}">
     <i class="bi bi-clipboard2-plus-fill"></i>
-      <span>Prescribe</span>
+      <span>Appoentment</span>
     </a>
   </li>
 
@@ -70,15 +70,12 @@
  <!-- end admit dropdown  -->
 
 
-
-
-
-  <!-- <li class="nav-item">
-    <a class="nav-link " href="{{ route('admit') }}">
+   <li class="nav-item">
+    <a class="nav-link " href="{{route('admission.list')}}">
     <i class="bi bi-pci-card"></i>
-      <span>Admit</span>
+      <span>Admission</span>
     </a>
-  </li> -->
+  </li>
 
   <li class="nav-item">
     <a class="nav-link " href="{{ route('amount') }}">

@@ -7,8 +7,8 @@
 </div>
 
 <h1 class="text-center bg-success text-white p-2">Add Infromation</h1>
-<br>
-
+<br> 
+ 
 <div class="container mx-auto">
 
     <form action="{{ route('update',$doctorlists->id)}}" method="post" >
