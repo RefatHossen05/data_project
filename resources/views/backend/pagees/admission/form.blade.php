@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="text-center text-warning">Appointment Form</h1>
+<h1 class="text-center text-warning">Admission Form</h1>
 
 <a href="" class="btn btn-success">Back</a>
 <div class="container">

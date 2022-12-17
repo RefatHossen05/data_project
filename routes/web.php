@@ -1,6 +1,7 @@
 <?php
-
+                # start backend Controller
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\CategoryController;
@@ -9,7 +10,10 @@ use App\Http\Controllers\backend\AdmitController;
 use App\Http\Controllers\backend\RogiController;
 use App\Http\Controllers\backend\AppointmentController;
 use App\Http\Controllers\backend\AdmissionController;
+                    #End Backend Controller
 
+                    # Start Frontend Controller
+use App\Http\Controllers\frontend\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +26,24 @@ use App\Http\Controllers\backend\AdmissionController;
 |
 */
 
+
+                            # Start Backend Route
+
 Route::get('/', function () {
     return view('backend.pagees.dashboard');
 })->name('admin');
+
+                            #AuthController
+Route::get('/reg-form',[AuthController::class,'regForm'])->name('regForm');
+Route::post('/reg-submit',[AuthController::class,'regsubmit'])->name('regsubmit');
+Route::get('/login-form',[AuthController::class,'loginForm'])->name('login');
+Route::post('/login-submit',[AuthController::class,'loginsubmit'])->name('loginsubmit');
+
+Route::group(['middleware'=>'auth'],function(){
+
+
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
 
 
                             #DashboardController
@@ -32,7 +51,7 @@ Route::get('/dashboard-panel',[DashboardController::class,'dashboard_panel']);
 Route::get('/dashboard-admin',[DashboardController::class,'dashboard'])->name('dashboard');
 
 
-                            #RogiController
+                                 #RogiController
 Route::get('/patient-info',[RogiController::class,'information'])->name('ptninfo.info');
 Route::get('/patient-create',[RogiController::class,'list'])->name('list');
 Route::post('/patient-submit',[RogiController::class,'submit_data'])->name('submitdata');
@@ -43,7 +62,7 @@ Route::put('/patient-update/{id}',[RogiController::class,'update'])->name('patie
 
 
 
-                            #CategoryController
+                                #CategoryController
 
 Route::get('/admit-admin',[CategoryController::class,'admit'])->name('admit');
 
@@ -116,3 +135,10 @@ Route::put('appointmentupdate/{id}',[AppointmentController::class,'appointmentup
 Route::get('/admissionlist',[AdmissionController::class,'admissionlist'])->name('admission.list');
 Route::get('/admissionform',[AdmissionController::class,'admissionform'])->name('admission.form');
 Route::post('/admissionstore',[AdmissionController::class,'admissionstore'])->name('admission.store');
+
+});
+                                    #End Backend Route
+
+
+                                    #Start frontend Route
+ Route::get('/home-page',[FrontendController::class,'home'])->name('frontrand');

@@ -35,8 +35,6 @@
             <td>{{ $view->patient_name}}</td>
             <td>
             <img src="{{asset('/uploads/admitedpatient/'.$view->patient_image)}}" alt="image not found" height="70px" width="70px" class="rounded-circle">
-
-
             </td>
             <td>{{ $view->bad_no }}</td>
             <td>{{ $view->cabin_no }}</td>

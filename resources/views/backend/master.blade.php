@@ -8,7 +8,7 @@
   <title>@yield('title')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+ 
   <!-- Favicons -->
   <link href="{{url('backend/assets/img/favicon.png')}}" rel="icon">
   <link href="{{url('backend/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
@@ -59,6 +59,12 @@
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
+
+      @if($message =session()->get('success'))
+      <div class="alert alert-success alert-block">
+      <strong>{{$message}}</strong>
+      </div>
+      @endif
     </div><!-- End Page Title -->
     <div class="container">
             @if ($errors->any())

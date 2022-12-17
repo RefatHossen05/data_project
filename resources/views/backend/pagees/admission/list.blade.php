@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{route('admission.form')}}" class="btn btn-success my-2">Add appointment</a>
+<a href="{{route('admission.form')}}" class="btn btn-success my-2">Admission Form</a>
 
 <!-- @if($message =session()->get('success'))
 <div class="alert alert-success alert-block">
@@ -40,21 +40,28 @@
         <th>Action</th>
     </tr>
 
+@foreach($admissions as $admissionview)
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{$admissionview->id}}</td>
+        <td>{{$admissionview->name_of_candidate}}</td>
+        <td>
+            <img src="{{url('/uploads/Admission/',$admissionview->candidate_image)}}" alt="" height="70px" width="70px" class="rounded-circle">
+        </td>
+        <td>{{$admissionview->father_or_husband_name}}</td>
+        <td>{{$admissionview->date_of_birth}}</td>
+        <td>{{$admissionview->age}}</td>
+        <td>{{$admissionview->gender}}</td>
+        <td>{{$admissionview->nationality}}</td>
+        <td>{{$admissionview->permanent_address}}</td>
+        <td>{{$admissionview->present_address}}</td>
+        <td>{{$admissionview->email}}</td>
+        <td>{{$admissionview->contacet_no}}</td>
+        <td>
+            <a href="" class="btn btn-warning">Edit</a>
+            <a href="" class="btn btn-danger">Delete</a>
+        </td>
     </tr>
+    @endforeach
 
 
 

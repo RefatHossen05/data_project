@@ -9,7 +9,8 @@ use App\Models\Admission;
 class AdmissionController extends Controller
 {
     public function admissionlist(){
-        return view('backend.pagees.admission.list');
+        $admissions = Admission::all();
+        return view('backend.pagees.admission.list',compact('admissions'));
     }
 
     public function admissionform(){
@@ -19,7 +20,7 @@ class AdmissionController extends Controller
     public function admissionstore(Request $request){
         $filename=null;
         if($request->hasfile('candidate_image')){
-            $filename=date('Ymdhmsis').'.'.$request->file('candidate_image')->getClientOriginalExtention();
+            $filename=date('Ymdhmsis').'.'.$request->file('candidate_image')->getClientOriginalExtension();
             $request->file('candidate_image')->storeAs('uploads/Admission',$filename);
         }
 
@@ -37,6 +38,7 @@ class AdmissionController extends Controller
             'contacet_no'=>$request->contacet_no,
             
         ]);
+        return to_route('admission.list');
     }
 }
 
