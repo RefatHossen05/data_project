@@ -30,6 +30,8 @@ class AuthController extends Controller
         $credentials = $request->except('_token');
         $authentication=auth()->attempt($credentials);
 
+        
+
         if($authentication){
             return to_route('dashboard')->with('success','Log in Successful');
         }

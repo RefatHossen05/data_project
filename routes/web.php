@@ -39,9 +39,9 @@ Route::post('/reg-submit',[AuthController::class,'regsubmit'])->name('regsubmit'
 Route::get('/login-form',[AuthController::class,'loginForm'])->name('login');
 Route::post('/login-submit',[AuthController::class,'loginsubmit'])->name('loginsubmit');
 
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'chekeadmin'],function(){
 
-
+ 
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 
@@ -135,6 +135,9 @@ Route::put('appointmentupdate/{id}',[AppointmentController::class,'appointmentup
 Route::get('/admissionlist',[AdmissionController::class,'admissionlist'])->name('admission.list');
 Route::get('/admissionform',[AdmissionController::class,'admissionform'])->name('admission.form');
 Route::post('/admissionstore',[AdmissionController::class,'admissionstore'])->name('admission.store');
+Route::get('/admissiondelete/{id}',[AdmissionController::class,'addelete'])->name('admission.delete');
+Route::get('/admissionedit/{id}',[AdmissionController::class,'editform'])->name('admission.edit');
+Route::put('/admissionupdate/{id}',[AdmissionController::class,'adupdate'])->name('admission.update');
 
 });
                                     #End Backend Route

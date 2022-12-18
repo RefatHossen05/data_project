@@ -48,7 +48,7 @@ class AdmitController extends Controller
 
         return view('backend.pagees.admited.updateform',compact('admited'));
     }
-
+ 
     public function update(Request $request,$id){
         $admited = Admit::find($id);
         $admited->update([

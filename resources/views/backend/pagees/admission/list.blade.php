@@ -57,8 +57,8 @@
         <td>{{$admissionview->email}}</td>
         <td>{{$admissionview->contacet_no}}</td>
         <td>
-            <a href="" class="btn btn-warning">Edit</a>
-            <a href="" class="btn btn-danger">Delete</a>
+            <a href="{{route('admission.edit',$admissionview->id)}}" class="btn btn-warning">Edit</a>
+            <a href="{{route('admission.delete',$admissionview->id)}}" class="btn btn-danger">Delete</a>
         </td>
     </tr>
     @endforeach
