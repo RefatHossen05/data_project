@@ -5,16 +5,19 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Models\Doctor;
+use Illuminate\Support\Facades\File;
 
 class RogiController extends Controller
 {
     public function information(){
-        $informations = Patient::all();
+        $informations = Patient::with('doctors')->get();
         return view('backend.pagees.ptninfo.info',compact('informations'));
     }
 
     public function list(){
-        return view('backend.pagees.ptninfo.create');
+        $doctors =Doctor::all();
+        return view('backend.pagees.ptninfo.create',compact('doctors'));
     }
 
     public function submit_data(Request $request){
@@ -24,22 +27,14 @@ class RogiController extends Controller
             'age'=>'required',
             'address'=>'required',
             'mobile_no'=>'required',
+            'doctor_id'=>'required',
         ]);
-
  
-        $filename = null;
-        if($request->hasfile('patient_image')){
-            $filename = 'Kodeeo'.'_'.date('Ymdhmsis').'.'.$request->file('patient_image')->getClientOriginalExtension();
-
-
-       
-        $request->file('patient_image')->storeAs('/uploads/patient',$filename);
-      }
-
-
-
-
-
+    //     $filename = null;
+    //     if($request->hasfile('patient_image')){
+    //         $filename = 'Kodeeo'.'_'.date('Ymdhmsis').'.'.$request->file('patient_image')->getClientOriginalExtension();     
+    //     $request->file('patient_image')->storeAs('/uploads/patient/',$filename);
+    //   }
 
        Patient::create([
            'patient_name' =>$request->patient_name,
@@ -47,7 +42,8 @@ class RogiController extends Controller
            'age' =>$request->age,
            'address' =>$request->address,
            'mobile_no'=>$request->mobile_no,
-           'patient_image'=>$filename
+           'doctor_id'=>$request->doctor_id
+         
        ]);
 
 
@@ -76,11 +72,20 @@ class RogiController extends Controller
             'mobile_no'=>'required',
         ]);
 
+        $patientinfoupdate = Patient::find($id);    
+
+
+    //     $filename = $patientinfoupdate->patient_image;
+    //     if($request->hasfile('patient_image')){
+    //         $removeFile=public_path().'/uploads/patient/' . $filename;
+    //         File::delete('$removeFile');
+    //         $filename = 'Kodeeo'.'_'.date('Ymdhmsis').'.'.$request->file('patient_image')->getClientOriginalExtension();     
+    //     $request->file('patient_image')->storeAs('/uploads/patient/',$filename);
+    //   }
 
 
 
 
-        $patientinfoupdate = Patient::find($id);
         $patientinfoupdate->update([
             'patient_name' =>$request->patient_name,
             'gender' =>$request->gender,

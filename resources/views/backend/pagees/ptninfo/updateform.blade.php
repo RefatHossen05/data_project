@@ -14,6 +14,8 @@
          <label for="patient_name"  class="mb-1">Patient Name:</label>
          <input type="text" class="form-control" name="patient_name" placeholder="Plese Enter Patient Name" id="patient_name" value="{{ $patientinfo->patient_name}}">
         </div>
+
+
         <div class="form-group my-2">
          <label for="gender"  class="mb-1">Gender</label>
          <input type="text" class="form-control" name="gender" placeholder="Male/Female" id="gender" value="{{$patientinfo->gender}}">
@@ -37,7 +39,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-danger">Submit</button>
+            <button type="submit" class="btn btn-danger">Update</button>
         </div>
 
     </form>

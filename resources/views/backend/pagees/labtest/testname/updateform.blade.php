@@ -24,7 +24,7 @@
 
 
         <div class="text-center">
-            <button type="submit" class="btn btn-danger">Submit</button>
+            <button type="submit" class="btn btn-danger">Update</button>
         </div>
 
     </form>

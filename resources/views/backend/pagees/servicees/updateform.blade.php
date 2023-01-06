@@ -21,6 +21,16 @@
          <strong class="text-danger">{{$message}}</strong>
          @enderror
         </div>
+
+        <div class="form-group my-2">
+         <label for="doctor_image" class="mb-1">Doctor Image :</label>
+         <input type="file" name="doctor_image" class="form-control" id="doctor_image">
+
+         <img src="{{url('/uploads/doctor/'.$doctorlists->doctor_image)}}" alt="image not found" height="70px" width="70px" class="rounded-circle">
+         
+        </div>
+
+
         <div class="form-group my-2">
          <label for="dpt"  class="mb-1">Department :</label>
          <input type="text" name="dpt" class="form-control" placeholder="(Medicine Expart)" id="dpt" value="{{ $doctorlists->dpt}}">
@@ -60,7 +70,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" name="submit" class="btn btn-danger">Submit</button>
+            <button type="submit" name="submit" class="btn btn-danger">Update</button>
         </div>
 
     </form>

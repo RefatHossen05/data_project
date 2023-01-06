@@ -8,7 +8,7 @@
 <div class="alert alert-success alert-block">
 <strong>{{$message}}</strong>
 </div>
-@endif 
+@endif  -->
 
 
 @if($message =session()->get('danger'))
@@ -21,7 +21,7 @@
 <div class="alert alert-warning alert-block">
 <strong>{{$message}}</strong>
 </div>
-@endif  -->
+@endif 
 
 <table class="table table-bordered"> 
     <tr>

@@ -8,13 +8,9 @@
 </div> 
 </div>
  
-<h1 class="text-center text-info" >Doctor Information</h1>
+<h1 class="text-center text-white bg-success my-2 py-1" >Doctor List</h1>
 
-@if($message = session()->get('success'))
-<div class="alert alert-success alert-block">
-    <strong>{{$message}}</strong>
-</div>
-@endif
+
 
 @if($message = session()->get('danger'))
 <div class="alert alert-danger alert-block">
@@ -42,10 +38,10 @@
             
         </tr>
 
-        @foreach($doctors as $doctor_view)
+        @foreach($doctors as $key=>$doctor_view)
 
         <tr>
-            <td>{{$doctor_view->id}}</td>
+            <td>{{$key+1}}</td>
             <td>{{$doctor_view->doctorname}}</td>
             <td>
             <img src="{{url('/uploads/doctor/'.$doctor_view->doctor_image)}}" alt="image not found" height="70px" width="70px" class="rounded-circle">
@@ -55,7 +51,7 @@
             <td>{{$doctor_view->time}}</td>
             <td>{{$doctor_view->address}}</td>
             <td>{{$doctor_view->mobile}}</td>
-            <td><a href="{{ route('doctorlist.updateform',$doctor_view->id)}}" class="btn btn-warning">Update</a></td>
+            <td><a href="{{ route('doctorlist.updateform',$doctor_view->id)}}" class="btn btn-warning">Edit</a></td>
             <td><a href="{{ route ('doctordate.delete',$doctor_view->id)}}" class="btn btn-danger">Delete</a></td>
         </tr>
         @endforeach

@@ -19,6 +19,20 @@ class AdmissionController extends Controller
     }
 
     public function admissionstore(Request $request){
+        $request->validate([
+            'name_of_candidate'=>'required',
+            'candidate_image'=>'required',
+            'father_or_husband_name'=>'required',
+            'date_of_birth'=>'required',
+            'age'=>'required',
+            'gender'=>'required',
+            'nationality'=>'required',
+            'permanent_address'=>'required',
+            'present_address'=>'required',
+            'email'=>'required',
+            'contacet_no'=>'required',
+        ]);
+
         $filename=null;
         if($request->hasfile('candidate_image')){
             $filename=date('Ymdhmsis').'.'.$request->file('candidate_image')->getClientOriginalExtension();
@@ -39,7 +53,7 @@ class AdmissionController extends Controller
             'contacet_no'=>$request->contacet_no,
             
         ]);
-        return to_route('admission.list');
+        return to_route('admission.list')->with('success','Created Successful');
     }
 
     public function addelete($id){
@@ -53,12 +67,30 @@ class AdmissionController extends Controller
     }
 
     public function adupdate(Request $request,$id){
+        $request->validate([
+            'name_of_candidate'=>'required',
+            'candidate_image'=>'required',
+            'father_or_husband_name'=>'required',
+            'date_of_birth'=>'required',
+            'age'=>'required',
+            'gender'=>'required',
+            'nationality'=>'required',
+            'permanent_address'=>'required',
+            'present_address'=>'required',
+            'email'=>'required',
+            'contacet_no'=>'required',
+        ]);
+        
+
+
+
+
         $admissionupdate = Admission::find($id);
         $filename = $admissionupdate->candidate_image;
 
         if($request->hasfile('candidate_image'))
         {
-            $removefile = public_path('/uploads/Admission',$filename);
+            $removefile = public_path().'/uploads/Admission/'.$filename;
             // File::delete($removefile);
             File::delete('/uploads/Admission/'.$admissionupdate->candidate_image);
 
@@ -83,7 +115,7 @@ class AdmissionController extends Controller
             'contacet_no'=>$request->contacet_no,
             
         ]);
-        return back();
+        return to_route('admission.list')->with('warning','Updated Successful');
 
     }
 

@@ -44,7 +44,7 @@ class TestController extends Controller
          return view('backend.pagees.labtest.testname.updateform',compact('testnameamdprice'));
      }
 
-     public function testnaemupdate(Request $request, $id){
+     public function testnameupdate(Request $request, $id){
 
         $request->validate([
             'test_name'=>'required',

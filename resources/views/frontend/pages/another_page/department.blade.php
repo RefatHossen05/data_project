@@ -1,3 +1,7 @@
+@extends('frontend.master')
+
+@section('content')
+
 <section class="department_section layout_padding">
     <div class="department_container">
       <div class="container ">
@@ -42,12 +46,12 @@
           </div>
           <div class="col-md-3">
             <div class="box ">
-              <div class="img-box">
-                <img src="{{url('frontend/assets/images/s3.png')}}" alt="">
+              <div class="">
+                <img src="{{url('frontend/assets/images/labtest.jpg')}}" height="90px" width="90px" class="rounded-circle mb-3" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Surgery
+                  Lab Test
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable page when looking at its layout.
@@ -58,7 +62,7 @@
           <div class="col-md-3">
             <div class="box ">
               <div class="img-box">
-                <img src="{{url('frontend/assets/images/s4.png')}}" alt="">
+                <img src="{{('frontend/assets/images/s4.png')}}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -79,3 +83,6 @@
       </div>
     </div>
   </section>
+
+
+@endsection

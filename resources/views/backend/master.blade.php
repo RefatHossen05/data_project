@@ -67,16 +67,12 @@
       @endif
     </div><!-- End Page Title -->
     <div class="container">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
+            @if ($errors->any())   
                     @foreach ($errors->all() as $error)
-                    <li>
+                    <p class="alert alert-danger">
                         {{$error}}
-                    </li>
+                    </p>
                     @endforeach
-                </ul>
-            </div>
             @endif
         </div>
     

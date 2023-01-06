@@ -23,5 +23,10 @@ class UserTableseeder extends Seeder
             'username'=>'admin',
             'role'=>'admin'
         ]);
+
+   
+
+
+
     }
 }

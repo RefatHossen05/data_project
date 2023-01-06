@@ -25,10 +25,7 @@
          <input type="text" name="type_of_test" class="form-control" id="test">
         </div>
 
-        <div class="form-group my-2">
-         <label for="b&c" class="mb-1">Bad & Cabin</label>
-         <input type="text" name="bad_and_cabin" class="form-control" id="b&c">
-        </div>
+
 
         <div class="form-group my-2">
          <label for="discription" class="mb-1">Discription</label>

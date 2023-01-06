@@ -4,7 +4,7 @@
 <a href="{{ route('list')}}" class="btn btn-outline-primary">Add patient</a>
 </div>
 
-<h1 class="text-center bg-success my-3 py-1 text-white">Patient Information</h1>
+<h1 class="text-center bg-success my-3 py-1 text-white">Patient List</h1>
 @if($message = session()->get('success'))
 <div class="alert alert-success alert-block">
 <strong>{{$message}}</strong>
@@ -14,8 +14,9 @@
     <thead>
         <tr>
             <th>Sl No</th>
-            <th>Patient Name</th>
-            <th>Patient Image</th>
+            <th>Patient Name</th> 
+            <th>Doctor Name</th>  
+            <th>Department</th>       
             <th>Gender</th>
             <th>Age</th>
             <th>Address</th>
@@ -24,20 +25,20 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($informations as $patientview)
+    @foreach($informations as $key=>$patientview)
         <tr>
-            <td>{{ $patientview->id }}</td>
-            <td>{{ $patientview->patient_name }}</td>
-            <td>
-            <img src="{{url('/uploads/patient/'.$patientview->patient_image)}}" alt="image not found" height="70px" width="70px" class="rounded-circle">
-            </td>
+            <td>{{ $key+1 }}</td>
+            <td>{{ $patientview->patient_name }}</td>  
+            <td>{{ $patientview->doctors->doctorname}}</td>        
+            <td>{{ $patientview->doctors->dpt}}</td>        
             <td>{{ $patientview->gender }}</td>
             <td>{{ $patientview->age}}</td>
             <td>{{ $patientview->address}}</td>
             <td>{{ $patientview->mobile_no}}</td>
             <td>
-            <a href="{{route('delete',$patientview->id)}}" class="btn btn-danger">Delete</a>
             <a href="{{ route('updateform',$patientview->id)}}" class="btn btn-warning">Update</a>
+            <a href="{{route('delete',$patientview->id)}}" class="btn btn-danger">Delete</a>
+           
 
             </td>
         </tr>

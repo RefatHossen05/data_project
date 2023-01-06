@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('admits', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_name');
-            $table->string('patient_image');
-            $table->string('bad_no');
-            $table->string('cabin_no');
+            $table->string('admited_date');
+            $table->string('patient_id');
+            $table->string('bed_id');
+            $table->string('room_id');
+            $table->string('ward_id');
             $table->string('description');
             $table->timestamps();
         });

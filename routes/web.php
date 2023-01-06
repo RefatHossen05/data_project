@@ -10,6 +10,11 @@ use App\Http\Controllers\backend\AdmitController;
 use App\Http\Controllers\backend\RogiController;
 use App\Http\Controllers\backend\AppointmentController;
 use App\Http\Controllers\backend\AdmissionController;
+use App\Http\Controllers\backend\RoomController;
+use App\Http\Controllers\backend\WardController;
+use App\Http\Controllers\backend\BedController;
+use App\Http\Controllers\backend\DiseasesController;
+
                     #End Backend Controller
 
                     # Start Frontend Controller
@@ -29,9 +34,7 @@ use App\Http\Controllers\frontend\FrontendController;
 
                             # Start Backend Route
 
-Route::get('/', function () {
-    return view('backend.pagees.dashboard');
-})->name('admin');
+ 
 
                             #AuthController
 Route::get('/reg-form',[AuthController::class,'regForm'])->name('regForm');
@@ -45,6 +48,10 @@ Route::group(['middleware'=>'chekeadmin'],function(){
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 
+
+    Route::get('/', function () {
+        return view('backend.pagees.dashboard');
+    })->name('admin');
 
                             #DashboardController
 Route::get('/dashboard-panel',[DashboardController::class,'dashboard_panel']);
@@ -63,18 +70,17 @@ Route::put('/patient-update/{id}',[RogiController::class,'update'])->name('patie
 
 
                                 #CategoryController
-
-Route::get('/admit-admin',[CategoryController::class,'admit'])->name('admit');
-
-
 Route::get('/amount',[CategoryController::class,'totalamount'])->name('amount');
 Route::get('/amount-create',[CategoryController::class,'amountcreate'])->name('amount.form');
 Route::post('/amount-create-submit',[CategoryController::class,'store'])->name('amount.submit');
+Route::get('/amountdelete/{id}',[CategoryController::class,'amountdelete'])->name('amount.delete');
+Route::get('/amountedit/{id}',[CategoryController::class,'amountedit'])->name('amount.edit');
+Route::put('amountupdate/{id}',[CategoryController::class,'amountupdate'])->name('amount.update');
 
 
 
 
-                            #AdmitController
+                                #AdmitController
 
 Route::get('/admitedcreate',[AdmitController::class,'admitedcreate'])->name('admit.create');
 Route::get('/admitedform',[AdmitController::class,'admitedform'])->name('admit.form');
@@ -106,7 +112,7 @@ Route::get('/testname-create',[TestController::class,'testform'])->name('add.tes
 Route::post('/testname-submit',[TestController::class,'testnamestore'])->name('testname.submit');
 Route::get('/testname-delete/{id}',[TestController::class,'labdrop'])->name('testname.delete');
 Route::get('/testname-updateform/{id}',[TestController::class,'testupdateform'])->name('test.updateform');
-Route::put('/testname-update/{id}',[TestController::class,'testnaemupdate'])->name('test.update');
+Route::put('/testname-update/{id}',[TestController::class,'testnameupdate'])->name('test.update');
 
 
 
@@ -127,7 +133,7 @@ Route::get('/appointmentform',[AppointmentController::class,'appointmentform'])-
 Route::post('/appointmentstore',[AppointmentController::class,'appointmentstore'])->name('appointment.store');
 Route::get('/appointmentdelete/{id}',[AppointmentController::class,'appointmentdelete'])->name('appointment.delete');
 Route::get('/appointmenteditform/{id}',[AppointmentController::class,'appointmentedit'])->name('appointment.edit');
-Route::put('appointmentupdate/{id}',[AppointmentController::class,'appointmentupdate'])->name('appointment.update');
+Route::put('/appointmentupdate/{id}',[AppointmentController::class,'appointmentupdate'])->name('appointment.update');
 
 
 
@@ -139,9 +145,53 @@ Route::get('/admissiondelete/{id}',[AdmissionController::class,'addelete'])->nam
 Route::get('/admissionedit/{id}',[AdmissionController::class,'editform'])->name('admission.edit');
 Route::put('/admissionupdate/{id}',[AdmissionController::class,'adupdate'])->name('admission.update');
 
-});
+
+
+                                     #RoomController
+Route::get('/roomlist',[RoomController::class,'createlist'])->name('room.list');
+Route::get('/roomform',[RoomController::class,'roomform'])->name('room.form');
+Route::post('/roomstore',[RoomController::class,'roomsubmit'])->name('room.store');
+Route::get('/roomdelete/{id}',[RoomController::class,'roomdelete'])->name('room.delete');
+Route::get('/roomedit/{id}',[RoomController::class,'roomedit'])->name('room.edit');
+Route::put('/roomupdate/{id}',[RoomController::class,'roomupdate'])->name('room.update');
+
+                                    #WardController
+Route::get('/ward-list',[WardController::class,'wardlist'])->name('ward.list');
+Route::get('/ward-form',[WardController::class,'wardform'])->name('ward.form');
+Route::post('/ward-store',[WardController::class,'wardstore'])->name('ward.store');
+Route::get('/ward/delete/{id}',[WardController::class,'ward_delete'])->name('ward.delete');
+Route::get('/ward-edit/{id}',[WardController::class,'wardedit'])->name('ward.edit');
+Route::put('/ward-update/{id}',[WardController::class,'wardupdate'])->name('ward.update');
+
+                                    #BedController
+Route::get('/bedlist',[BedController::class,'bedlist'])->name('bed.list');                                
+Route::get('/bedform',[BedController::class,'bedform'])->name('bed.form');                                
+Route::post('/bedstore',[BedController::class,'bedstore'])->name('bed.store');                                
+Route::get('/beddelete/{id}',[BedController::class,'beddelete'])->name('bed.delete');                                
+Route::get('/bededti/{id}',[BedController::class,'bededit'])->name('bed.edit');                                
+Route::put('/bedupdate/{id}',[BedController::class,'bedupdate'])->name('bed.update');                                
+                               
+
+                                    #DiseasesController
+Route::get('/diseases_list',[DiseasesController::class,'diseases_list'])->name('diseases.list');
+Route::get('/diseases_form',[DiseasesController::class,'diseases_form'])->name('diseases.form');
+Route::post('/diseases_store',[DiseasesController::class,'diseases_store'])->name('diseases.store');
+Route::get('/diseases_delete/{id}',[DiseasesController::class,'diseases_delete'])->name('diseases.delete');
+
+Route::get('/diseases_edti/{id}',[DiseasesController::class,'diseases_edit'])->name('diseases.edit');
+
+Route::put('/diseases_update/{id}',[DiseasesController::class,'diseases_update'])->name('diseases.update');
+
+ 
+
+}); 
                                     #End Backend Route
 
-
+ 
                                     #Start frontend Route
- Route::get('/home-page',[FrontendController::class,'home'])->name('frontrand');
+ Route::get('/home-page',[FrontendController::class,'home'])->name('home.page');
+ Route::get('/about_page',[FrontendController::class,'about_page'])->name('about.page');
+ Route::get('/doctor_department',[FrontendController::class,'department'])->name('department.page');
+ Route::get('/doctor',[FrontendController::class,'doctor'])->name('doctor.page');
+ Route::get('/contact',[FrontendController::class,'contact'])->name('contact.page');
+ Route::get('/test_type',[FrontendController::class,'test_type'])->name('test.type');

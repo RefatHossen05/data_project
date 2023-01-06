@@ -47,26 +47,226 @@
 
 <body>
 
-  <div class="hero_area">
 
-    <div class="hero_bg_box">
-      <img src="{{('frontend/assets/images/hero-bg.png')}}" alt="">
-    </div>
 
     <!-- header section strats -->
-@include('frontend.partial.header')
+    <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <img src="{{url('frontend/assets/images/hero-bg.png')}}" alt="">
+    </div>
+
+        <!-- header section strats -->
+        <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span> 
+              Orthoc
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{route('home.page')}}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('about.page')}}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('department.page')}}">Departments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('doctor.page')}}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('test.type')}}">Test Type</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('contact.page')}}">Contact Us</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
     <!-- end header section -->
 
+<section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      We Provide Best Medical Test
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      We Provide Best Healthcare
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                    We Support 24/7 For Patient
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
 
-    <!-- slider section -->
-@include('frontend.partial.slider')
+    </section>
     <!-- end slider section -->
   </div>
+    <!-- end header section -->
+
+  
 
 
   <!-- department section -->
 
-@include('frontend.partial.department')
+  <section class="department_section layout_padding">
+    <div class="department_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Our Departments
+          </h2>
+          <p>
+            Asperiores sunt consectetur impedit nulla molestiae delectus repellat laborum dolores doloremque accusantium
+          </p>
+        </div> 
+        <div class="row">
+          <div class="col-md-3">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{{url('frontend/assets/images/s1.png')}}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Cardiology
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable page when looking at its layout.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{{url('frontend/assets/images/s2.png')}}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Diagnosis
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable page when looking at its layout.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box ">
+              <div class="">
+              <img src="{{url('frontend/assets/images/labtest.jpg')}}" height="90px" width="90px" class="rounded-circle mb-3" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Surgery
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable page when looking at its layout.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{{url('frontend/assets/images/s4.png')}}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  First Aid
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable page when looking at its layout.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="">
+            View All
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- end department section -->
 
@@ -358,7 +558,7 @@
   </section>
 
   <!-- end client section -->
-
+  
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">

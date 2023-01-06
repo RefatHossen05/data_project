@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('date');
             $table->string('type_of_test');
-            $table->string('bad_and_cavin');
+
             $table->string('discription');
             $table->string('bill');
             $table->string('discount');

@@ -1,9 +1,11 @@
-<header class="header_section">
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-             Labaid Diagonstic Center
+              Orthoc
             </span>
           </a>
 
@@ -13,20 +15,23 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('home.page')}}">Home </a>
+              </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('about.page')}}"> About <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="{{route('department.page')}}">Departments</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="departments.html">Departments</a>
+                <a class="nav-link" href="{{route('doctor.page')}}">Doctors</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctors.html">Doctors</a>
+                <a class="nav-link" href="{{route('test.type')}}">Test Type</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="{{route('contact.page')}}">Contact Us</a>
               </li>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -38,3 +43,5 @@
         </nav>
       </div>
     </header>
+    <!-- end header section -->
+  </div>

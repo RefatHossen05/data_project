@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\File;
 
 class AppointmentController extends Controller
 {
@@ -18,6 +19,13 @@ class AppointmentController extends Controller
     }
 
     public function appointmentstore(Request $request){
+        $request->validate([
+            'patient_name'=>'required',
+            'doctor_name'=>'required',
+            'doctor_image'=>'required',
+            'date'=>'required',
+        ]);
+
         $filename=null;
         if($request->hasfile('doctor_image')){
             $filename=date('Ymdhmsis').'.'.$request->file('doctor_image')->getClientOriginalExtension();
@@ -45,8 +53,25 @@ class AppointmentController extends Controller
     }
 
     public function appointmentupdate(Request $request, $id){
-        $lists =  Appointment::find($id);
 
+        $request->validate([
+            'patient_name'=>'required',
+            'doctor_name'=>'required',
+            'doctor_image'=>'required',
+            'date'=>'required',
+        ]);
+
+
+        $filename=$lists->doctor_image;
+        if($request->hasfile('doctor_image')){
+            $removeFile= public_path() . '/uploads/appointment/' . $filename;
+            File::delete($removeFile);
+            $filename=date('Ymdhmsis').'.'.$request->file('doctor_image')->getClientOriginalExtension();
+
+            $request->file('doctor_image')->storeAs('/uploads/appointment',$filename);
+        }
+
+        $lists =  Appointment::find($id);
         $lists->update([
             'patient_name'=>$request->patient_name,
             'doctor_name'=>$request->doctor_name,

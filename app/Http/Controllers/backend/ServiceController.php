@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\validator;
+use Illuminate\Support\Facades\File;
 #use session;
 
 
@@ -84,6 +85,17 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id){
         $doctorlist = Doctor::find($id);
+
+        $filename = $doctorlist->doctor_image;
+        if($request->hasfile('doctor_image')){
+            $removeFile = public_path(). '/uploads/doctor/' . $filename ; 
+            File::delete($removeFile);
+            $filename = date('Ymdhmsis').'.'.$request->file('doctor_image')->getClientOriginalExtension();
+
+            $request->file('doctor_image')->storeAs('/uploads/doctor/',$filename);
+        }
+
+
         $doctorlist->update([
             'doctorname'=>$request->doctorname,
             'dpt'=>$request->dpt,

@@ -26,17 +26,60 @@
     </a>
   </li>
 
-
   <li class="nav-item">
-    <a class="nav-link " href="{{ route('appointment.list')}}">
-    <i class="bi bi-clipboard2-plus-fill"></i>
-      <span>Appoentment</span>
+    <a class="nav-link " href="{{route('diseases.list')}}">
+    <i class="bi bi-file-diff"></i>
+      <span>Diseases</span>
     </a>
   </li>
 
-  <!-- start labtest dropdown -->
 
   <li class="nav-item">
+    <a class="nav-link " href="{{route('ward.list')}}">
+    <i class="bi bi-file-diff"></i>
+      <span>Ward</span>
+    </a>
+  </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link " href="{{route('room.list')}}">
+    <i class="bi bi-file-diff"></i>
+      <span>Room</span>
+    </a>
+  </li>
+
+
+
+
+
+  <li class="nav-item">
+    <a class="nav-link " href="{{route('bed.list')}}">
+    <i class="bi bi-file-diff"></i>
+      <span>Bed</span>
+    </a>
+  </li>
+
+  
+
+  <li class="nav-item">
+    <a class="nav-link " href="{{route('testname')}}">
+    <i class="bi bi-grid"></i>
+      <span>Lab Test</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link " href="{{ route('reprot.list')}}">
+    <i class="bi bi-grid"></i>
+      <span>Report</span>
+    </a>
+  </li>
+
+
+
+
+  <!-- <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="">
       <i class="bi bi-journal-text"></i><span>Lab Test</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
@@ -53,13 +96,21 @@
       </li>
 
     </ul>
-  </li>
+  </li> -->
 
   <!-- end labtest dropdown -->
  
 
+  <li class="nav-item">
+    <a class="nav-link " href="{{route('admission.list')}}">
+    <i class="bi bi-pci-card"></i>
+      <span>Admission</span>
+    </a>
+  </li>
 
- <!-- start admit dropdown -->
+
+
+
  <li class="nav-item">
     <a class="nav-link " href="{{ route('admit.create') }}">
       <i class="bi bi-grid"></i>
@@ -67,20 +118,22 @@
     </a>
   </li>
 
- <!-- end admit dropdown  -->
 
 
-   <li class="nav-item">
-    <a class="nav-link " href="{{route('admission.list')}}">
-    <i class="bi bi-pci-card"></i>
-      <span>Admission</span>
+
+
+  <li class="nav-item">
+    <a class="nav-link " href="{{ route('appointment.list')}}">
+    <i class="bi bi-clipboard2-plus-fill"></i>
+      <span>Appoentment</span>
     </a>
   </li>
+
 
   <li class="nav-item">
     <a class="nav-link " href="{{ route('amount') }}">
     <i class="bi bi-check-circle"></i>
-      <span>Total Amount</span>
+      <span>Payment</span>
     </a>
   </li>
 

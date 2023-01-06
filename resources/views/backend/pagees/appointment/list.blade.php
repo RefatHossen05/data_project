@@ -4,11 +4,6 @@
 
 <a href="{{route('appointment.form')}}" class="btn btn-success my-2">Add appointment</a>
 
-@if($message =session()->get('success'))
-<div class="alert alert-success alert-block">
-<strong>{{$message}}</strong>
-</div>
-@endif 
 
 
 @if($message =session()->get('danger'))
@@ -22,6 +17,8 @@
 <strong>{{$message}}</strong>
 </div>
 @endif 
+
+<h1 class="text-center my-1">Patient Appointment List</h1>
 
 <table class="table table-bordered"> 
     <tr>

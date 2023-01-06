@@ -5,35 +5,37 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admit;
-
+use App\Models\Patient;
+use App\Models\Bed;
+use App\Models\Room;
+use App\Models\Word;
+use Illuminate\Support\Facades\File;
+ 
 class AdmitController extends Controller
 { 
 
     public function admitedcreate(){
-        $admitpeoples = Admit::all();
-        return view('backend.pagees.admited.create',compact('admitpeoples'));
+        $admitpeoples = Admit::with('patient','bed','room','ward')->get();
+        return view('backend.pagees.admited.create',compact('admitpeoples',));
     }
     public function admitedform(){
-        return view('backend.pagees.admited.form');
+        $patients = Patient::all();
+        $beds = Bed::all();
+        $rooms = Room::all();
+        $wards = Word::all();
+        return view('backend.pagees.admited.form',compact('patients','rooms','beds','wards'));
     }
 
     public function store(Request $request){
-        
-        $filename = null;
-        if($request->hasfile('patient_image')){
-            $filename=date('Ymdhmsis').'.'.$request->file('patient_image')->getClientOriginalExtension();
-
-            $request->file('patient_image')->storeAs('uploads/admitedpatient',$filename);
-        }
-
         Admit::create([
-            'patient_name'=>$request->patient_name,
-            'bad_no'=>$request->bad_no,
-            'cabin_no'=>$request->cabin_no,
+            'admited_date'=>$request->admited_date,
+            'patient_id'=>$request->patient_id,
+            'bed_id'=>$request->bed_id,
+            'room_id'=>$request->room_id,
+            'ward_id'=>$request->ward_id,
             'description'=>$request->description,
-            'patient_image'=>$filename,
         ]);
-        return redirect()->route('admit.create')->with('success','Created Successfully');
+        return redirect()->route('admit.create');
     }
 
    
@@ -44,17 +46,23 @@ class AdmitController extends Controller
     }
 
     public function updateform($id){
-        $admited = Admit::find($id);
-
-        return view('backend.pagees.admited.updateform',compact('admited'));
+        $admited = Admit::find($id);       
+        $patients = Patient::all();
+        $beds = Bed::all();
+        $rooms = Room::all();
+        $wards = Word::all();
+        return view('backend.pagees.admited.updateform',compact('patients','beds','wards','rooms'));
     }
  
-    public function update(Request $request,$id){
+    public function update(Request $request,$id){      
         $admited = Admit::find($id);
-        $admited->update([
-            'bad_no'=>$request->bad_no,
-            'cabin_no'=>$request->cabin_no,
-            'description'=>$request->description,
+       $admited->update([
+        'admited_date'=>$request->admited_date,
+        'patient_id'=>$request->patient_id,
+        'bed_id'=>$request->bed_id,
+        'room_id'=>$request->room_id,
+        'ward_id'=>$request->ward_id,
+        'description'=>$request->description,
         ]);
         return redirect()->back();
     }

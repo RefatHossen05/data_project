@@ -7,7 +7,10 @@
 <a href="{{ url('patient-info')}}" class="btn btn-outline-primary my-2">Patient List</a>
 </div>
 
-<h1 class="text-center bg-success text-white p-2">Add Patient Infromation</h1>
+<div class="row justify-content-center">
+<div class="col-lg-6 ">
+
+<h3 class="text-center bg-success text-white py-2">Add Patient Infromation</h3>
 <div class="container mx-auto">
     <form action="{{ route('submitdata') }}" method="POST"  enctype="multipart/form-data">
     @csrf
@@ -17,10 +20,19 @@
          <input type="text" class="form-control" name="patient_name" placeholder="Plese Enter Patient Name" id="patient_name">
         </div>
 
+
         <div class="form-group my-2">
-         <label for="patient_image"  class="mb-1">Patient Image:</label>
-         <input type="file" class="form-control" name="patient_image" placeholder="Plese Enter Patient Name" id="patient_image">
+         <label for="doctor_name"  class="mb-1">Doctor Name:</label>
+            <select name="doctor_id" id="doctor_name" class="form-control form-select">
+            @foreach($doctors as $doctor)
+                <option value="{{$doctor->id}}">{{$doctor->doctorname}}</option>
+            @endforeach
+            </select>
         </div>
+
+      
+         
+       
 
         <div class="form-group my-2">
          <label for="gender"  class="mb-1">Gender</label>
@@ -51,6 +63,8 @@
     </form>
 
 </div>
+</div>
 
+</div>
 
 @endsection
