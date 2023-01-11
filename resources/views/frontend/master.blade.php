@@ -39,7 +39,7 @@
   <link href="{{url('frontend/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
   <link href="{{url('frontend/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{url('frontend/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
-
+  @notifyCss
   <!-- Template Main CSS File -->
   <link href="{{url('frontend/assets/css/style.css')}}" rel="stylesheet">
 
@@ -49,6 +49,8 @@
 
 
 <body class="sub_page">
+
+<x:notify-messages />
 
  <!-- header section -->
  @include('frontend.pages.header')
@@ -78,6 +80,7 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
+  @notifyJs
 
 </body>
 

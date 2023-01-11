@@ -58,5 +58,9 @@
 
 </table>
 
+<div  class="d-flex justify-content-center">
+{{ $rooms->links()}}
+</div>
+
 
 @endsection

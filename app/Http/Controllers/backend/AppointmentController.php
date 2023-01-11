@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class AppointmentController extends Controller
 {
     public function appointmentlist(){
-        $lists = Appointment::all();
+        $lists = Appointment::paginate(5);
         return view('backend.pagees.appointment.list',compact('lists'));
     }
 

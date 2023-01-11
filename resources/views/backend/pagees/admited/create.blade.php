@@ -51,6 +51,14 @@
            
 
 </table>
+
+
+
+<div  class="d-flex justify-content-center">
+{{  $admitpeoples->links()}}
+</div>
+
+
 </div>
 <a href="" class="btn btn-success" onclick="printDiv('PrintTableArea')">Print</a>
 

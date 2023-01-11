@@ -61,14 +61,17 @@ class ServiceController extends Controller
     //    $doctor->save();
 
     //   session()->flash('msg','Doctor Information Added Successfully');
-       return redirect()->route('doctor')->with('success','Created Successfully');
+
+    
+            return to_route('doctor');
+       ///return redirect()->route('doctor')->with('success','Created Successfully');
 
 
     }
 
 
     public function show(Doctor $doctor){
-        $doctors = Doctor::all();
+        $doctors = Doctor::paginate(5);
         return view('backend.pagees.servicees.doctorlist',compact('doctors'));
     }
 
@@ -86,7 +89,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id){
         $doctorlist = Doctor::find($id);
 
-        $filename = $doctorlist->doctor_image;
+        $filename =$doctorlist->doctor_image;
         if($request->hasfile('doctor_image')){
             $removeFile = public_path(). '/uploads/doctor/' . $filename ; 
             File::delete($removeFile);
@@ -103,6 +106,7 @@ class ServiceController extends Controller
             'time'=>$request->time,
             'address'=>$request->address,
             'mobile'=>$request->mobile,
+            'doctor_image'=>$filename,
         ]);
         return redirect()->route('doctor')->with('warning','Updated Successfully');
     }

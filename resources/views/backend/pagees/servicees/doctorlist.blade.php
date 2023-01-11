@@ -63,5 +63,9 @@
 
 </table>
 
+<div  class="d-flex justify-content-center">
+{{  $doctors->links()}}
+</div>
+
 
 @endsection

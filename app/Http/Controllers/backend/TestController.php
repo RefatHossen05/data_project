@@ -10,7 +10,7 @@ use App\Models\Report;
 class TestController extends Controller
 {
     public function testname(){
-        $labtests = Labtest::all();
+        $labtests = Labtest::paginate(5);
         return view('backend.pagees.labtest.testname.testname',compact('labtests'));
     }
     public function testform(){

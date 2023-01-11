@@ -11,7 +11,7 @@ use App\Models\Doctor;
 class DiseasesController extends Controller
 {
     public function diseases_list(){
-        $diseases = Diseases::with('doctor')->get();
+        $diseases = Diseases::with('doctor')->paginate(5);
         return view('backend.pagees.diseases.diseaseslist',compact('diseases'));
     }
      

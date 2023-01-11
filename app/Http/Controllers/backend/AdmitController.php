@@ -15,7 +15,7 @@ class AdmitController extends Controller
 { 
 
     public function admitedcreate(){
-        $admitpeoples = Admit::with('patient','bed','room','ward')->get();
+        $admitpeoples = Admit::with('patient','bed','room','ward')->paginate(5);
         return view('backend.pagees.admited.create',compact('admitpeoples',));
     }
     public function admitedform(){

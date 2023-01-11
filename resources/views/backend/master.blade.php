@@ -31,6 +31,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{url('backend/assets/css/style.css')}}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
@@ -42,13 +43,16 @@
 
 <body>
 <!-- header -->
+
   @include('backend.partial.header')
+
 
 
 <!-- sidebar -->
   @include('backend.partial.sidebar')
 
   <main id="main" class="main">
+  
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
@@ -97,6 +101,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{url('backend/assets/js/main.js')}}"></script>
+  
 
 </body>
 

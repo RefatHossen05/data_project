@@ -42,7 +42,7 @@ class AuthController extends Controller
 
     public function logout(){
         auth()->logout();
-         return to_route('login')->with('success','Logout Successfully');
+         return to_route('home.page')->with('success','Logout Successfully');
     }
    
 }

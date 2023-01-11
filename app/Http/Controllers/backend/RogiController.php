@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\File;
 class RogiController extends Controller
 {
     public function information(){
-        $informations = Patient::with('doctors')->get();
+        $informations = Patient::with('doctors')->paginate(5);
         return view('backend.pagees.ptninfo.info',compact('informations'));
     }
 

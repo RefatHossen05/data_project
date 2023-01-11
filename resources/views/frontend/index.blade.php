@@ -42,6 +42,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{url('frontend/assets/css/style.css')}}" rel="stylesheet">
+  @notifyCss
 
 </head>
 
@@ -60,9 +61,11 @@
         <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="">
             <span> 
-              Orthoc
+              Labaid <br>
+              Diagonstic <br>
+              Center
             </span>
           </a>
 
@@ -71,6 +74,11 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+          <x:notify-messages />
+
+
             <ul class="navbar-nav">
               <li class="nav-item active">
                 <a class="nav-link" href="{{route('home.page')}}">Home <span class="sr-only">(current)</span></a>
@@ -91,18 +99,183 @@
                 <a class="nav-link" href="{{route('contact.page')}}">Contact Us</a>
               </li>
               <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                <button class="btn  my-2 my-lg-1 my-sm-0 nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
+
+              @auth()
+             
+              
+              <li class="nav-item">
+              <a class="nav-link" href="">{{auth()->user()->name}}</a>              
+              </li>
+            
+
+              <li>
+                <a class="btn btn-danger" href="{{route('frontend.logout')}}"> Logout</a>
+              </li>            
             </ul>
-          </div>
+
+
+@else
+
+          <button type="button" class="btn btn-warning mr-1" data-toggle="modal" data-target="#registration">
+  Registration
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#login">
+  Login
+</button>
+
+@endguest
+
+
+
+
+
+<!-- Modal -->
+
+
+<div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ragistration Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+     
+      <form action="{{route('reg')}}" method="post">
+      @csrf
+      <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" name="name" class="form-control" placeholder="Plase Enter Your Name">
+      </div>
+      <div class="form-group">
+      <label for="">User Name</label>
+      <input type="text" name="username" class="form-control" placeholder="Plase Enter Your Name">
+      </div>
+      <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" name="email" class="form-control" placeholder="Plase Enter Your Email">
+      </div>
+
+      <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" name="password" class="form-control" placeholder="****">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+
+      </form>
+
+        
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <form action="{{route('login.form')}}" method="post">
+      @csrf
+      <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" name="email" class="form-control" placeholder="Plase Enter Your Email">
+      </div>
+      <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" name="password" class="form-control" placeholder="****">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">login</button>
+      </div>
+      </form>
+
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
         </nav>
       </div>
     </header>
     <!-- end header section -->
 
+
+
+<!-- <div class="container">
+ <div class="text-right" style="direction:rtl">
+
+
+Button trigger modal -
+
+
+
+</div> 
+
+
+
+
+
+
+
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
 <section class="slider_section ">
+
+
+
+
+
+
+
+
+
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -229,13 +402,13 @@
             </div>
           </div>
           <div class="col-md-3">
-            <div class="box ">
-              <div class="">
+            <div class="box">
+              <div class="img-box">
               <img src="{{url('frontend/assets/images/labtest.jpg')}}" height="90px" width="90px" class="rounded-circle mb-3" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Surgery
+                 LabTest
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable page when looking at its layout.
@@ -316,11 +489,13 @@
           Incilint sapiente illo quo praesentium officiis laudantium nostrum, ad adipisci cupiditate sit, quisquam aliquid. Officiis laudantium fuga ad voluptas aspernatur error fugiat quos facilis saepe quas fugit, beatae id quisquam.
         </p>
       </div>
+      
       <div class="row">
+       @foreach($doctoros as $doctor)
         <div class="col-sm-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-              <img src="{{url('frontend/assets/images/d1.jpg')}}" alt="">
+              <img src="{{url('uploads/doctor/'.$doctor->doctor_image)}}" style=""  alt="">
             </div>
             <div class="detail-box">
               <div class="social_box">
@@ -338,72 +513,17 @@
                 </a>
               </div>
               <h5>
-                Elina Josh
+               {{$doctor->doctorname}}
               </h5>
               <h6 class="">
-                Doctor
+               {{$doctor->degree}} <span>({{$doctor->dpt}})</span>
               </h6>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{url('frontend/assets/images/d2.jpg')}}" alt="">
-            </div>
-            <div class="detail-box">
-              <div class="social_box">
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-youtube" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-              <h5>
-                Adam View
-              </h5>
-              <h6 class="">
-                Doctor
-              </h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{url('frontend/assets/images/d3.jpg')}}" alt="">
-            </div>
-            <div class="detail-box">
-              <div class="social_box">
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-youtube" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-              <h5>
-                Mia Mike
-              </h5>
-              <h6 class="">
-                Doctor
-              </h6>
-            </div>
-          </div>
-        </div>
+      @endforeach
+   
+    
       </div>
       <div class="btn-box">
         <a href="">
@@ -578,13 +698,13 @@
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call +8801740185610
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  labaid@gmail.com
                 </span>
               </a>
             </div>
@@ -615,24 +735,27 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-2 mx-auto footer_col">
-          <div class="footer_link_box">
+        <div class="footer_link_box">
             <h4>
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="index.html">
+              <a class="" href="{{route('home.page')}}">
                 Home
               </a>
-              <a class="" href="about.html">
+              <a class="active" href="{{route('about.page')}}">
                 About
               </a>
-              <a class="" href="departments.html">
+              <a class="" href="{{route('department.page')}}">
                 Departments
               </a>
-              <a class="" href="doctors.html">
+              <a class="" href="{{route('doctor.page')}}">
                 Doctors
               </a>
-              <a class="" href="contact.html">
+              <a class="" href="{{route('test.type')}}">
+                Test Type
+              </a>
+              <a class="" href="{{route('contact.page')}}">
                 Contact Us
               </a>
             </div>
@@ -652,10 +775,9 @@
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates<br><br></a>
+         
             &copy; <span id="displayYear"></span> Distributed By
-            <a href="https://themewagon.com/">ThemeWagon</a>
+            <a href="https://themewagon.com/">RifatIT</a>
         </p>
        
       </div>  
@@ -678,7 +800,10 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
+  
   <!-- End Google Map -->
+
+@notifyJs
 
 </body>
 

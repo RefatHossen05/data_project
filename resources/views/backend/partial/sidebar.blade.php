@@ -12,6 +12,7 @@
     </a>
   </li>
 
+@if(auth()->user()->role=="admin")
    <li class="nav-item">
     <a class="nav-link " href="{{ route('doctor') }}">
     <i class="bi bi-hospital"></i>
@@ -59,8 +60,9 @@
       <span>Bed</span>
     </a>
   </li>
+  @endif
 
-  
+  @if(auth()->user()->role=="manager" || auth()->user()->role=="admin")
 
   <li class="nav-item">
     <a class="nav-link " href="{{route('testname')}}">
@@ -76,7 +78,7 @@
     </a>
   </li>
 
-
+@endif
 
 
   <!-- <li class="nav-item">
@@ -119,7 +121,7 @@
   </li>
 
 
-
+@if(auth()->user()->role=="admin")
 
 
   <li class="nav-item">
@@ -138,5 +140,6 @@
   </li>
 
 </ul>
+@endif
 
 </aside><!-- End Sidebar-->

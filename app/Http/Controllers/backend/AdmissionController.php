@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class AdmissionController extends Controller
 {
     public function admissionlist(){
-        $admissions = Admission::all();
+        $admissions = Admission::paginate(5);
         return view('backend.pagees.admission.list',compact('admissions'));
     }
 

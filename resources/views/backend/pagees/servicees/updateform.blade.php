@@ -11,7 +11,7 @@
  
 <div class="container mx-auto">
 
-    <form action="{{ route('update',$doctorlists->id)}}" method="post" >
+    <form action="{{ route('update',$doctorlists->id)}}" method="post" enctype="multipart/form-data">
     @method('PUT')
     @csrf
         <div class="form-group my-2">

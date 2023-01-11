@@ -60,4 +60,8 @@
 
 </table>
 
+<div  class="d-flex justify-content-center">
+{{ $labtests->links()}}
+</div>
+
 @endsection

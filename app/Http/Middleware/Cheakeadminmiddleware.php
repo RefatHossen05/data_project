@@ -17,9 +17,9 @@ class Cheakeadminmiddleware
     public function handle(Request $request, Closure $next)
     {
         if(auth()->user()){
-            if(auth()->user()->role =='admin' ||auth()->user()->role=='manager'){
+            if(auth()->user()->role =='admin' || auth()->user()->role=='manager'){
                  return $next($request);
-            }
+            }         
         }
         return to_route('login');
        

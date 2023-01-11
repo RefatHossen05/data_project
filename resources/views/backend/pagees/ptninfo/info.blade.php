@@ -48,4 +48,8 @@
 
 </table>
 
+
+<div  class="d-flex justify-content-center">
+{{ $informations->links()}}
+</div>
 @endsection

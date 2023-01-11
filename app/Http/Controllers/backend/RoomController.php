@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class RoomController extends Controller
 {
 public function createlist(){
-    $rooms = Room::all();
+    $rooms = Room::paginate(5);
     return view('backend.pagees.room.roomlist',compact('rooms'));
 }
 

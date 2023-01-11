@@ -58,7 +58,11 @@
 
 </table>
 
-{{$beds->links()}}
+<div  class="d-flex justify-content-center">
+{{ $beds->links()}}
+</div>
+
+
 
 
 @endsection

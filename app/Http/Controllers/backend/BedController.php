@@ -11,7 +11,7 @@ class BedController extends Controller
     public function bedlist(){
         $beds = Bed::paginate(2);
         return view('backend.pagees.bed.bedlist',compact('beds'));
-    }
+    } 
     
     public function bedform(){
         return view('backend.pagees.bed.bedform');

@@ -67,4 +67,9 @@
 
 </table>
 
+<div  class="d-flex justify-content-center">
+{{ $admissions->links()}}
+</div>
+
+
 @endsection

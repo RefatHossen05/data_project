@@ -21,8 +21,18 @@ class UserTableseeder extends Seeder
             'email'=>'admin@gmail.com',
             'password'=>bcrypt('123456'),
             'username'=>'admin',
-            'role'=>'admin'
-        ]);
+            'role'=>'admin',
+
+            'name'=>'shopnil',
+            'email'=>'shopnil@gmail.com',
+            'password'=>bcrypt('123456'),
+            'username'=>'shopnil',
+            'role'=>'manager'
+             ],
+
+
+
+    );
 
    
 

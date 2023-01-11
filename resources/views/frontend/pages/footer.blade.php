@@ -16,13 +16,13 @@
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call +8801740185610
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  labaid@gmail.com
                 </span>
               </a>
             </div>
@@ -58,19 +58,22 @@
               Links
             </h4>
             <div class="footer_links">
-              <a class="" href="index.html">
+              <a class="" href="{{route('home.page')}}">
                 Home
               </a>
-              <a class="active" href="about.html">
+              <a class="active" href="{{route('about.page')}}">
                 About
               </a>
-              <a class="" href="departments.html">
+              <a class="" href="{{route('department.page')}}">
                 Departments
               </a>
-              <a class="" href="doctors.html">
+              <a class="" href="{{route('doctor.page')}}">
                 Doctors
               </a>
-              <a class="" href="contact.html">
+              <a class="" href="{{route('test.type')}}">
+                Test Type
+              </a>
+              <a class="" href="{{route('contact.page')}}">
                 Contact Us
               </a>
             </div>
@@ -93,7 +96,7 @@
           &copy; <span id="displayYear"></span> All Rights Reserved By
           <a href="https://html.design/">Free Html Templates<br><br></a>
             &copy; <span id="displayYear"></span> Distributed By
-            <a href="https://themewagon.com/">ThemeWagon</a>
+            <a href="https://themewagon.com/">RifatIt</a>
         </p>
       </div>
     </div>

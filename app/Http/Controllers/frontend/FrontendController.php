@@ -4,11 +4,13 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Doctor;
 
 class FrontendController extends Controller
 {
     public function home(){
-        return view('frontend.index');
+        $doctoros=Doctor::all();
+        return view('frontend.index',compact('doctoros'));
     }
 
 
@@ -21,7 +23,8 @@ class FrontendController extends Controller
     }
 
     public function doctor(){
-        return view('frontend.pages.another_page.doctor');
+        $doctoros=Doctor::all();
+        return view('frontend.pages.another_page.doctor',compact('doctoros'));
     }
 
     public function test_type(){

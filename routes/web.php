@@ -19,6 +19,7 @@ use App\Http\Controllers\backend\DiseasesController;
 
                     # Start Frontend Controller
 use App\Http\Controllers\frontend\FrontendController;
+use App\Http\Controllers\frontend\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,28 @@ Route::post('/reg-submit',[AuthController::class,'regsubmit'])->name('regsubmit'
 Route::get('/login-form',[AuthController::class,'loginForm'])->name('login');
 Route::post('/login-submit',[AuthController::class,'loginsubmit'])->name('loginsubmit');
 
+
+
+
+
+                                    #Start frontend Route
+ Route::get('/',[FrontendController::class,'home'])->name('home.page');
+ Route::get('/about_page',[FrontendController::class,'about_page'])->name('about.page');
+ Route::get('/doctor_department',[FrontendController::class,'department'])->name('department.page');
+ Route::get('/doctor',[FrontendController::class,'doctor'])->name('doctor.page');
+ Route::get('/contact',[FrontendController::class,'contact'])->name('contact.page');
+ Route::get('/test_type',[FrontendController::class,'test_type'])->name('test.type');
+
+                                    #frontend log/reg Route
+
+Route::post('/registration',[LoginController::class,'registration'])->name('reg');
+Route::post('/login/submit',[LoginController::class,'submit_login'])->name('login.form');
+Route::get('/frontend_logout',[LoginController::class,'frontend_logout'])->name('frontend.logout');
+
+
+
+
+
 Route::group(['middleware'=>'chekeadmin'],function(){
 
  
@@ -49,7 +72,7 @@ Route::group(['middleware'=>'chekeadmin'],function(){
 
 
 
-    Route::get('/', function () {
+    Route::get('/admin_panel', function () { 
         return view('backend.pagees.dashboard');
     })->name('admin');
 
@@ -188,10 +211,3 @@ Route::put('/diseases_update/{id}',[DiseasesController::class,'diseases_update']
                                     #End Backend Route
 
  
-                                    #Start frontend Route
- Route::get('/home-page',[FrontendController::class,'home'])->name('home.page');
- Route::get('/about_page',[FrontendController::class,'about_page'])->name('about.page');
- Route::get('/doctor_department',[FrontendController::class,'department'])->name('department.page');
- Route::get('/doctor',[FrontendController::class,'doctor'])->name('doctor.page');
- Route::get('/contact',[FrontendController::class,'contact'])->name('contact.page');
- Route::get('/test_type',[FrontendController::class,'test_type'])->name('test.type');
