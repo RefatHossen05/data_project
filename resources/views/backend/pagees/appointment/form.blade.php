@@ -16,18 +16,20 @@
                     <input type="text" name="patient_name" id="patient_name" class="form-control" placeholder="Place Enter Your name">
                 </div>  
 
+
                 <div class="form-group mb-1">
                     <label for="Doctor_name" class="mb-1">
-                        <strong>Doctor Name</strong>
+                    <strong>Doctor Name:</strong>
                     </label>
-                    <input type="text" name="doctor_name" id="Doctor_name" class="form-control" placeholder="Place Enter Doctor Name">
-                </div> 
-                <div class="form-group mb-1">
-                    <label for="doctor_image" class="mb-1">
-                        <strong>Doctor Image</strong>
-                    </label>
-                    <input type="file" name="doctor_image" id="doctor_image" class="form-control" >
-                </div> 
+                    <select name="doctor_id" id="Doctor_name" class="form-control form-select">
+                    @foreach($doctors as $doctor)
+                        <option value="{{$doctor->id}}">{{$doctor->doctorname}}</option>
+                    @endforeach
+                    </select>
+                
+
+
+
 
                 <div class="form-group mb-1">
                     <label for="date" class="mb-1">

@@ -51,9 +51,9 @@ class LoginController extends Controller
         if(auth()->attempt($credintial) && auth()->user()->role=="admin"){          
             return to_route('dashboard');
             
-        }
+        }notify()->success('Login Successfull');
         //  elseif(auth()->attempt($credintial)){
-        //     notify()->success('Login Successfull');
+        //     ;
         //     return back();
 
         return back();

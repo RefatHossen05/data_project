@@ -50,10 +50,11 @@
 
 <body class="sub_page">
 
-<x:notify-messages />
+
 
  <!-- header section -->
  @include('frontend.pages.header')
+ <x:notify-messages />
 
   <!-- about section -->
 @yield('content')

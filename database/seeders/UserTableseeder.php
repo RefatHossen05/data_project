@@ -28,15 +28,11 @@ class UserTableseeder extends Seeder
             'password'=>bcrypt('123456'),
             'username'=>'shopnil',
             'role'=>'manager'
-             ],
+             ]
 
 
 
     );
-
-   
-
-
 
     }
 }

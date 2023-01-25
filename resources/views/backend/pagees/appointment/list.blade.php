@@ -17,7 +17,7 @@
 <strong>{{$message}}</strong>
 </div>
 @endif 
-
+ 
 <h1 class="text-center my-1">Patient Appointment List</h1>
 
 <table class="table table-bordered"> 
@@ -33,9 +33,9 @@
     <tr> 
         <td>{{$view->id}}</td>
         <td>{{$view->patient_name}}</td>
-        <td>{{$view->doctor_name}}</td>
+        <td>{{$view->doctors->doctorname}}</td>
         <td class="text-center">
-            <img src="{{url('/uploads/appointment/'.$view->doctor_image)}}" alt="image not found" class="rounded-circle" height="70px" width="70px" >
+            <img src="{{url('/uploads/doctor/'.$view->doctors->doctor_image)}}" alt="image not found" class="rounded-circle" height="70px" width="70px" >
         </td>
         <td>{{$view->date}}</td>
         <td>

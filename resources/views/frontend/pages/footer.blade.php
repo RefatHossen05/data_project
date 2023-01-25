@@ -74,7 +74,7 @@
                 Test Type
               </a>
               <a class="" href="{{route('contact.page')}}">
-                Contact Us
+                Appointment
               </a>
             </div>
           </div>

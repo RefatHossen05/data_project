@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use App\Models\Appointment;
+use App\Models\Labtest;
 
 class FrontendController extends Controller
 {
@@ -24,16 +26,19 @@ class FrontendController extends Controller
 
     public function doctor(){
         $doctoros=Doctor::all();
-        return view('frontend.pages.another_page.doctor',compact('doctoros'));
+        $appointment=Appointment::all();
+        return view('frontend.pages.another_page.doctor',compact('doctoros','appointment'));
     }
 
     public function test_type(){
-        return view('frontend.pages.another_page.test');
+        $labtests=Labtest::all();
+        return view('frontend.pages.another_page.test',compact('labtests'));
     }
 
 
     public function contact(){
-        return view('frontend.pages.another_page.contact');
+        $doctoros=Doctor::all();
+        return view('frontend.pages.another_page.contact',compact('doctoros'));
     }
 
 

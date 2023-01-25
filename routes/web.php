@@ -20,6 +20,8 @@ use App\Http\Controllers\backend\DiseasesController;
                     # Start Frontend Controller
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\frontend\LoginController;
+use App\Http\Controllers\frontend\AppointmentfrontController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,7 @@ use App\Http\Controllers\frontend\LoginController;
 */
 
 
-                            # Start Backend Route
+                           
 
  
 
@@ -55,6 +57,12 @@ Route::post('/login-submit',[AuthController::class,'loginsubmit'])->name('logins
  Route::get('/contact',[FrontendController::class,'contact'])->name('contact.page');
  Route::get('/test_type',[FrontendController::class,'test_type'])->name('test.type');
 
+
+
+
+ Route::post('/appointment',[AppointmentfrontController::class,'appointment_submit'])->name('appointment.submit');
+
+
                                     #frontend log/reg Route
 
 Route::post('/registration',[LoginController::class,'registration'])->name('reg');
@@ -64,7 +72,7 @@ Route::get('/frontend_logout',[LoginController::class,'frontend_logout'])->name(
 
 
 
-
+    # Start Backend Route
 Route::group(['middleware'=>'chekeadmin'],function(){
 
  

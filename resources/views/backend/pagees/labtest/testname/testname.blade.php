@@ -9,11 +9,7 @@
 
 
 
-@if ($message = session()->get('success'))
-<div class="alert alert-success alert-block">
-    <strong>{{ $message }}</strong>
-</div>
-@endif
+
 
 @if ($message = session()->get('danger'))
 <div class="alert alert-danger alert-block">
